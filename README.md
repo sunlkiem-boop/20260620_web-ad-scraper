@@ -92,7 +92,3 @@ marketing-skills-handoff/
 - **Ad scrape times out** — re-run `~/.meta-scraper-venv/bin/playwright install chromium`.
 - **PDF rendering fails in brand-research-sprint** — `~/.meta-scraper-venv/bin/python -m pip install markdown_pdf`.
 - **Report shows no generation-prompt section** — name a customer brand when you ask (e.g. "for aonic"), or check `~/meta-scraper/brands/<slug>/brand.json` exists.
-
-## A note on the bundled data
-
-This bundle includes **Aonic Fuel** and **Aonic Complete** brand docs and a **marketing brain** seeded with marketing-creator video notes. If you don't want to share that content, delete `brands/`, `examples/`, and `marketing-brain-data/` before sending the folder on — the skills and installer still work without them.
