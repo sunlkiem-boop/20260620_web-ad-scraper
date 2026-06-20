@@ -37,9 +37,9 @@ Customer profiles live at `~/meta-scraper/brands/<slug>/`. Each contains:
 
 ```json
 {
-  "product_image_filename": "aonic-fuel-rich-chocolate.png",
-  "logo_light_bg_filename": "aonic-logo-light-bg.png",
-  "logo_dark_bg_filename":  "aonic-logo-dark-bg.png"
+  "product_image_filename": "product-hero.png",
+  "logo_light_bg_filename": "logo-light-bg.png",
+  "logo_dark_bg_filename":  "logo-dark-bg.png"
 }
 ```
 
@@ -91,7 +91,7 @@ If the user explicitly says they don't have a customer profile yet and just want
 
 When the user wants to onboard a new customer (or implies it), do this **automatically** — don't dump instructions on them, just do it.
 
-**Step A. Get the website URL.** If the user gave you a URL ("set up customer Aonic, https://aoniclife.com"), great. If not, ask once: "Got a website URL for them? I'll pull the brand details from there." If they don't have one, ask them for: brand name, niche, what they sell + to whom, flagship product name, product format, and language — then skip Step B.
+**Step A. Get the website URL.** If the user gave you a URL ("set up customer [Brand], https://example.com"), great. If not, ask once: "Got a website URL for them? I'll pull the brand details from there." If they don't have one, ask them for: brand name, niche, what they sell + to whom, flagship product name, product format, and language — then skip Step B.
 
 **Step B. Fetch the site.** Use the `WebFetch` tool on the customer's URL with this prompt:
 
@@ -313,7 +313,7 @@ The model can see both attachments and has context about the customer brand. Det
 
 ### How to write a `recreate_prompts` entry
 
-Each entry leans on **one** specific brand angle from `proof_points` and produces an Aonic-Fuel-style recreate using that angle as the wedge. Two core principles:
+Each entry leans on **one** specific brand angle from `proof_points` and produces a brand-style recreate using that angle as the wedge. Two core principles:
 
 - **Visual: defer, don't describe.** "Recreate the attached competitor ad for {brand_name}." That's the whole visual brief. The model can see the layout, lighting, composition, typography, and model casting in the attached image. Don't list any of it.
 - **Copy: provide the NEW text, don't reference the OLD.** Tell the model what overlay text the new ad should carry, in the customer's own voice (pulled from `brand.json`, `current_state.md`, and the foundational docs). Don't quote, paraphrase, or instruct the model to preserve the competitor's existing copy. The image model can see what's currently in the ad; your job is to give it the new headline, body, and CTA the customer wants to ship.

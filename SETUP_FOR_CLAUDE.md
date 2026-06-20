@@ -19,7 +19,6 @@ It will:
 - Download Chromium for Playwright
 - Copy the three skills to `~/.claude/skills/`
 - Copy the scraper engine to `~/meta-scraper/scrape.py`
-- Copy the Aonic Fuel example brand to `~/meta-scraper/brands/aonic-fuel/`
 - Seed the marketing brain at `~/Second Marketing Brain/knowledge/`
 - Sanity-check that every dependency imports
 
@@ -41,7 +40,6 @@ Run these checks and confirm each:
 ```bash
 ls ~/.claude/skills/                       # expect: scrape-meta-ads  brand-research-sprint  marketing-brain
 ls ~/meta-scraper/scrape.py                # the scraper engine
-ls ~/meta-scraper/brands/aonic-fuel/       # the example brand profile
 ~/.meta-scraper-venv/bin/python -c "from playwright_stealth import Stealth; import markdown_pdf; print('deps ok')"
 ```
 
@@ -51,9 +49,9 @@ Report success and tell them:
 
 1. **Restart Claude Code** (open a new session) so the three skills load. They can confirm with `/skills`.
 2. How to use each skill:
-   - **scrape-meta-ads** — paste a Meta Ad Library URL and name the customer: *"Scrape these ads for aonic: `<facebook.com/ads/library URL with view_all_page_id>`"*. Produces a self-contained HTML report with a generation prompt per ad.
+   - **scrape-meta-ads** — paste a Meta Ad Library URL and name the customer: *"Scrape these ads for [brand-name]: `<facebook.com/ads/library URL with view_all_page_id>`"*. Produces a self-contained HTML report with a generation prompt per ad.
    - **brand-research-sprint** — *"Create the foundational docs for `<product URL>`"*. Produces VOC Dossier + Avatar Sheets + Offer Brief + Beliefs (markdown + PDF).
    - **marketing-brain** — *"Ask the marketing brain: how does Mark structure a VSL?"* or *"Add this video to my marketing brain: `<transcript>`"*.
-3. Point them at the `examples/` folder for context on what the output looks like — especially `examples/WALKTHROUGH_AONIC_FUEL.html` and the finished deliverables in `examples/aonic-fuel/`. The `aonic-fuel` brand is already installed as a working customer profile they can scrape against immediately.
+3. Let them know they can add a customer brand profile to `~/meta-scraper/brands/<slug>/` (see `brand.json` format in the scrape-meta-ads skill) to unlock per-ad image-generation prompts in scrape reports.
 
 That's the whole job. Keep it friendly and concise.

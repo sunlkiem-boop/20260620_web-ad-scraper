@@ -9,7 +9,7 @@ Usage:
   python package_handoff.py
 
   # Bundle only specific brands
-  python package_handoff.py --brands aonic acme-skincare
+  python package_handoff.py --brands brand-slug-1 brand-slug-2
 
   # Bundle the skill+scraper only, no brands at all (e.g. you want the
   # recipient to set up their own customers from scratch)

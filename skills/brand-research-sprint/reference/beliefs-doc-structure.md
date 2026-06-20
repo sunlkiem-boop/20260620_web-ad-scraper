@@ -2,7 +2,7 @@
 
 Save as `<save-path>/<Brand>_<Product>_Beliefs.md` (+ matching `.pdf`).
 
-**Target length:** 10–15 PDF pages. The Aonic Fuel reference is 11 pages / 338 lines / 32KB.
+**Target length:** 10–15 PDF pages (roughly 300–400 lines / 30–35KB).
 
 **Core principle to internalize before drafting:**
 
@@ -80,7 +80,7 @@ Optional closing note specific to the belief — e.g. "Why this belief is compar
 
 ## Architecture default — 6 beliefs in logical-dependency order
 
-A defensible default ordering. **Verify from the VOC data and adjust before locking.** The Aonic Fuel sprint kept this order; other categories may need a different ordering.
+A defensible default ordering. **Verify from the VOC data and adjust before locking.** Other categories may need a different ordering.
 
 1. **Belief 1 — Category necessity:** *"I believe that [the convenient / clean / efficient version of this category] is non-negotiable for the goals I have."*
 2. **Belief 2 — Current-solution inadequacy:** *"I believe that what I'm currently using isn't actually [clean / effective / safe / sustainable], and the [problem] isn't going to fix itself."*

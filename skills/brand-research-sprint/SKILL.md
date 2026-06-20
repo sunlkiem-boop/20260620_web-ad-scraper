@@ -1,6 +1,6 @@
 ---
 name: brand-research-sprint
-description: Use this skill when the user wants to produce a complete foundational marketing-research package for a consumer product (VOC Dossier + Avatar Sheets + Offer Brief + Beliefs doc — four .md files plus four matching .pdf files). Triggers on phrases like "run a research sprint for [Product]", "create the foundational docs for [Product]", "do the same thing you did for Aonic Fuel for [new product]", "build VOC + avatars + offer brief + beliefs for [Brand]", "research sprint", "foundational marketing research", or when the user pastes a product page / brand brief and asks for a deep VOC + avatar + offer + beliefs workup. The skill produces 4 markdown files + 4 matching PDFs, with 200+ attributed verbatim customer quotes, in a strictly enforced 3-phase sequence (Phase 1 VOC → Phase 2 Avatars+Offer → Phase 3 Beliefs) with file-on-disk-early protocols, hard quote-count minimums, and brand-voice preservation. Do NOT trigger for single-deliverable requests like "just write a VOC dossier", short copy reviews, refinements to existing docs, or anything that isn't a full foundational research sprint.
+description: Use this skill when the user wants to produce a complete foundational marketing-research package for a consumer product (VOC Dossier + Avatar Sheets + Offer Brief + Beliefs doc — four .md files plus four matching .pdf files). Triggers on phrases like "run a research sprint for [Product]", "create the foundational docs for [Product]", "do the same research sprint for [new product]", "build VOC + avatars + offer brief + beliefs for [Brand]", "research sprint", "foundational marketing research", or when the user pastes a product page / brand brief and asks for a deep VOC + avatar + offer + beliefs workup. The skill produces 4 markdown files + 4 matching PDFs, with 200+ attributed verbatim customer quotes, in a strictly enforced 3-phase sequence (Phase 1 VOC → Phase 2 Avatars+Offer → Phase 3 Beliefs) with file-on-disk-early protocols, hard quote-count minimums, and brand-voice preservation. Do NOT trigger for single-deliverable requests like "just write a VOC dossier", short copy reviews, refinements to existing docs, or anything that isn't a full foundational research sprint.
 ---
 
 # Brand Research Sprint — VOC + Avatars + Offer + Beliefs
@@ -11,7 +11,7 @@ Produce the complete foundational marketing-research package for a consumer prod
 
 The skill description above (in YAML frontmatter) is the discovery layer. Once invoked, **always run Phase 0 first** (preflight — gather inputs and non-negotiables), then run Phases 1–3 end-to-end in a single conversation unless context is running low.
 
-If the user has only given a brand name (e.g. "do this for Aonic Race"), Phase 0 confirms: (1) where to save the output, (2) the product spec (or a URL to scrape), (3) which existing brand in `brands/` to use as the format-and-depth quality bar, (4) **any non-negotiables** (legal disclaimers, brand-voice rules, mandatory campaign elements). **Default save location:** `~/meta-scraper/brands/<brand>-<product>/documents/` (kebab-case). **Default quality-bar reference:** `~/meta-scraper/brands/aonic-fuel/documents/` — the bundled Aonic Fuel docs are your format-and-depth quality bar.
+If the user has only given a brand name (e.g. "do this for [Brand] [Product]"), Phase 0 confirms: (1) where to save the output, (2) the product spec (or a URL to scrape), (3) which existing brand in `brands/` to use as the format-and-depth quality bar, (4) **any non-negotiables** (legal disclaimers, brand-voice rules, mandatory campaign elements). **Default save location:** `~/meta-scraper/brands/<brand>-<product>/documents/` (kebab-case). **Default quality-bar reference:** the most recent completed brand docs in `~/meta-scraper/brands/`.
 
 ## Mental model
 
@@ -36,7 +36,7 @@ Suggested question set (pick the 2–4 that fit the situation):
 
 1. **Save location** — `brands/<brand>-<product>/documents/` (default) or custom path?
 2. **Product source of truth** — paste the product URL, or upload the spec sheet, or "use what's in brand.json"
-3. **Quality-bar reference** — which existing brand in `brands/` should I mirror for format and depth? (Default: `aonic-complete`)
+3. **Quality-bar reference** — which existing brand in `brands/` should I mirror for format and depth? (Default: most recent completed brand in `~/meta-scraper/brands/`)
 4. **Non-negotiables** — Are there mandatory rules every ad must follow? (Free-text expected; the user will list them. Examples to prime them: *"FDA structure-function disclaimer, exact brand-name casing, mandatory discount code, EU Health Claims wording, forbidden words"*)
 
 ### Step 0B — Categories of non-negotiable to probe for if the user is vague
@@ -115,7 +115,7 @@ Read `reference/research-framework.md` for the research questions (demographic, 
 
 **Auto-continue handling:** A system "Continue from where you left off" ping = the user asking you to keep going. Don't respond "no response requested" and stop — that abandons the work.
 
-**Verify the product is real before quoting:** Before writing §0, fetch the actual product page (`aoniclife.com` / brand site / Amazon listing / OpenFoodFacts) and validate the ingredient list, price, format. If the brand-brief claims contradict the public ingredient list (e.g. "no artificial sweeteners" but the label shows sucralose, or "no carrageenan" but the stabilizer blend contains it), **document the contradiction in §0.5 and adjust the competitive wedges accordingly.** This is the single most-important guardrail — getting the wedge architecture wrong here means the brand's ad copy will self-own.
+**Verify the product is real before quoting:** Before writing §0, fetch the actual product page (brand site / Amazon listing / OpenFoodFacts) and validate the ingredient list, price, format. If the brand-brief claims contradict the public ingredient list (e.g. "no artificial sweeteners" but the label shows sucralose, or "no carrageenan" but the stabilizer blend contains it), **document the contradiction in §0.5 and adjust the competitive wedges accordingly.** This is the single most-important guardrail — getting the wedge architecture wrong here means the brand's ad copy will self-own.
 
 ### Phase 2 — Avatar Sheets + Offer Brief
 
@@ -185,17 +185,12 @@ Every brand has verbatim language anchors that must be preserved across all four
 1. **Phase 0 captured non-negotiables** (highest authority — the user supplied them this session). Stored in `brand.json` under `non_negotiables` and `compliance_red_lines`.
 2. **Brand-existing reference docs** (the user's "quality-bar reference") — extract additional language anchors at the start of Phase 1 to complement Phase 0.
 
-Examples from the Aonic line:
+Examples of brand language anchors:
 
-- *Scientifically studied dosages* (NEVER "clinically effective")
-- *No pixie-dusting*
-- *We-Use-It-Ourselves Guarantee* (brand does NOT offer refunds — risk-reversal substitute)
-- *Zero artificial sweeteners* / *Zero grams added sugar*
-- *Real cocoa* / *real vanilla* (NEVER "natural flavor")
-- *Complete protein* / *complete amino acid profile*
-- *Made in USA with globally sourced ingredients*
-- *End Fake Health* (Senada Greca's mission framing)
-- *From our small space in San Francisco, we're redefining the health and wellness space...*
+- *[Brand's signature product claim]* (NEVER the generic competitor phrasing)
+- *[Brand's risk-reversal or guarantee phrasing]*
+- *[Brand's ingredient/formula positioning]*
+- *[Brand's mission statement or founder framing]*
 
 Extract the equivalent anchors for the new brand from `brand.json`, the brand site, prior press releases, and reference docs. Document them in VOC §0.6 and reuse verbatim in §7 (compliance flags), in every Offer Brief headline, and in every Beliefs-doc installation-language block.
 
@@ -206,7 +201,7 @@ You will not hit the quota by doing 10 wide searches. Hit it by doing 40+ narrow
 **Wave 1 — Direct category competitors (each gets its own narrow search):**
 - For each direct competitor: "[Brand] reviews complaints reddit", "[Brand] [specific-ingredient] aftertaste", "[Brand] 1-star Amazon reviews", "[Brand] vs [Brand-2]", "[Brand] dietitian roundup".
 - WebFetch the brand's testimonial page and the top three review aggregators.
-- Capture both 5-star praise (the bar Aonic Fuel must clear) AND 1-star complaints (the wedge ammunition).
+- Capture both 5-star praise (the bar your brand must clear) AND 1-star complaints (the wedge ammunition).
 
 **Wave 2 — Adjacent solutions** — what the customer is doing INSTEAD of buying the product. For protein shakes: Greek yogurt, cottage cheese, eggs, bars, smoothies. For supplements: pill stacks, food-first approaches. Each adjacent solution gets its own search wave.
 
@@ -238,12 +233,12 @@ If `markdown_pdf` is not installed, the script falls back to producing an HTML r
 
 ## Anti-laziness rules — read these every time
 
-These are violations Claude has been observed committing during the Aonic Fuel sprint that produced this skill. Each is listed with the corrective discipline:
+These are violations Claude has been observed committing during brand sprints. Each is listed with the corrective discipline:
 
 1. **"Doing the research without writing the file."** — Write §0 + §1 as soon as the executive summary is sketchable, BEFORE finishing §3/§4. The corrective discipline is: every meaningful chunk of research → save to disk → continue.
 2. **"Compressing 200 quotes into 50 with vague sources."** — The quota is 200+ attributed quotes. Vague sources are not attribution. The corrective discipline is: every quote must have a source URL or named attribution, full stop.
 3. **"Inventing quotes that fit the narrative."** — Never. If you need a quote for a specific argument and the data doesn't have one, do a top-up search OR flag the gap.
-4. **"Generalizing from the wrong category."** — Aonic Complete is a supplement; Aonic Fuel is an RTD protein. AG1 is NOT a Fuel competitor. Check that the competitive teardown reflects the actual category before writing it.
+4. **"Generalizing from the wrong category."** — Supplements and RTD proteins are different categories with different competitors. Check that the competitive teardown reflects the actual product category before writing it.
 5. **"Echoing the brand's own positioning back as customer voice."** — Brand-approved language goes in §0 and §7. Customer voice in §2 / §3 must be verbatim from real customers — never paraphrase the brand's positioning into a "customer-style quote."
 6. **"Self-owning by attacking a competitor on a complaint your product also has."** — Read the actual product page / OpenFoodFacts ingredient list BEFORE writing the competitive wedges. If your product also contains [ingredient X], you cannot attack a competitor on [ingredient X].
 7. **"Skipping the compliance flags section."** — §7 is the section that prevents the brand from getting an FTC letter. Always populate it.

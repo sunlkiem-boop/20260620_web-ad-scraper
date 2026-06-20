@@ -2,7 +2,7 @@
 
 Save as `<save-path>/<Brand>_<Product>_Offer_Brief.md` (+ matching `.pdf`).
 
-**Target length:** 15+ PDF pages of dense content. The Aonic Fuel reference is 17 pages / 575 lines / 45KB.
+**Target length:** 15+ PDF pages of dense content (roughly 550+ lines / 44KB+).
 
 **Critical rule:** fill EVERY template field. Don't skip. Don't truncate. The brief is the campaign architecture — every blank field is a creative-direction question the brand will have to answer downstream.
 
@@ -66,17 +66,17 @@ For Level 4–5 markets (most CPG categories), the standard moves are:
 
 ### Big Idea
 
-A blockquote sentence (the H1 for every long-form ad). One sentence that articulates the brand's position vs. the category enemy. Example from Aonic Fuel:
+A blockquote sentence (the H1 for every long-form ad). One sentence that articulates the brand's position vs. the category enemy. Example format:
 
-> **"The protein shake category was hijacked by sucralose. We refuse to use it. 32g of complete protein from real cocoa and lactose-free milk protein isolate — in a can you don't have to apologize for."**
+> **"[The category] was hijacked by [the villain / compromise]. [Brand] refuses. [Key product fact] — [in a format / way the customer doesn't have to apologize for]."**
 
 Follow with 3 numbered "why this Big Idea is right" anchors (each 1–2 sentences).
 
 ### Metaphor
 
-A blockquote one-liner that distills the Big Idea into a visual / metaphor. Example:
+A blockquote one-liner that distills the Big Idea into a visual / metaphor. Example format:
 
-> **"Most protein shakes are a chemistry set you drink. Aonic Fuel is the chocolate milk you'd drink if chocolate milk hit 32g of protein."**
+> **"Most [category] are [negative thing]. [Brand] is [the thing they wish it was]."**
 
 Follow with a "supporting metaphor stack" (4–6 alt one-liners the creative team can A/B test).
 
@@ -101,7 +101,7 @@ End with **UMP one-liner:** *"[one-sentence summary of the entire UMP frame]"*
 
 Same structure as UMP, but the layers are the product's mechanisms. Include any technical / biological reasoning, a comparison table where it helps, and authority quotes from named experts.
 
-Example from Aonic Fuel UMS Layer 3 — the calorie efficiency math chart:
+Example UMS comparison table format (Layer 3):
 
 ```markdown
 | Brand | Protein (g) | Calories | cal/g protein |
@@ -173,7 +173,7 @@ Each headline is a numbered entry:
 **Answer:** *"[1–3 sentence answer script using brand-approved language — preserves required anchors like 'scientifically studied dosages' and 'no pixie-dusting']"*
 ```
 
-Aonic Fuel had 13 objections (O1–O13). Common categories:
+Target 10–15 objections. Common categories:
 - Price / value
 - Ingredient skepticism (sucralose, carrageenan, etc.)
 - Taste / texture
@@ -233,7 +233,7 @@ Sub-sections:
 Wide grab-bag. Include:
 
 #### Creative golden rules
-The 5–8 most important DON'Ts for this brand — including specific ingredient self-owns (e.g. "carrageenan is OFF-LIMITS as an attack angle — Aonic Fuel contains it").
+The 5–8 most important DON'Ts for this brand — including specific ingredient or claim self-owns (e.g. "do NOT attack [ingredient X] if the product also contains it — verified against §0").
 
 #### Pricing-strategy notes
 The price-to-feel anchor, subscription path to LTV, bundle strategy.

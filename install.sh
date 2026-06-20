@@ -7,7 +7,7 @@
 #   - Chromium (for the Meta Ad Library scraper)
 #   - the three skills, into ~/.claude/skills/
 #   - the underlying scraper engine, into ~/meta-scraper/scrape.py
-#   - the bundled Aonic Fuel example brand
+#   - bundled example brands (if present in brands/)
 #   - the seed "marketing brain" knowledge base
 #
 #   bash install.sh
@@ -107,7 +107,7 @@ for skill_dir in "$BUNDLE_DIR/skills"/*/; do
   ok "Skill: $name"
 done
 
-# ---- 7. Example brand (Aonic Fuel) ------------------------------------------
+# ---- 7. Example brands -------------------------------------------------------
 if [ -d "$BUNDLE_DIR/brands" ]; then
   for brand_dir in "$BUNDLE_DIR/brands"/*/; do
     [ -d "$brand_dir" ] || continue
@@ -159,7 +159,7 @@ for f in "$SKILLS_DIR"/*/SKILL.md; do
 done
 echo ""
 echo "Open Claude Code in any directory and try:"
-echo "  • \"Scrape these ads for aonic: <Meta Ad Library URL>\""
+echo "  • \"Scrape these ads for <your-brand>: <Meta Ad Library URL>\""
 echo "  • \"Create the foundational docs for <product URL>\""
 echo "  • \"Ask the marketing brain: how does Mark structure a VSL?\""
 echo ""

@@ -7,7 +7,7 @@ Usage:
 Uses `markdown_pdf` (which wraps PyMuPDF). If the lib isn't installed, prints
 install instructions and exits non-zero so the calling skill knows to fall back.
 
-The CSS matches the visual style of the Aonic foundational docs — letter paper,
+The CSS matches the visual style of the foundational docs — letter paper,
 serif-free body, dense tables, blockquote highlights.
 """
 import sys

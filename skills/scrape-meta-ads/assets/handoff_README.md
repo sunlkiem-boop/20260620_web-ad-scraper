@@ -35,7 +35,7 @@ If you already have a `~/.claude/skills/scrape-meta-ads/` folder, the installer 
 
 Open Claude Code in any directory. Paste a Meta Ad Library URL, mention the customer:
 
-> Scrape these ads for aonic: `https://www.facebook.com/ads/library/?...&view_all_page_id=...`
+> Scrape these ads for [your-brand]: `https://www.facebook.com/ads/library/?...&view_all_page_id=...`
 
 Claude auto-loads the `scrape-meta-ads` skill, scrapes the competitor's active ads, analyzes each statically (skipping videos by default unless you ask otherwise), and — because the customer brand profile is already set up — generates a per-ad image-generation prompt tailored to that customer.
 

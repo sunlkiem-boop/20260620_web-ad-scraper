@@ -2,7 +2,7 @@
 
 Save as `<save-path>/<Brand>_<Product>_Avatar_Sheets.md` (+ matching `.pdf`).
 
-**Target:** 2–3 avatars. Pick the ones the VOC dossier actually supports — don't force ones the data doesn't back. Aonic Fuel went with 3 (Premier Refugee / Macro-Tracking Athlete / GLP-1 Muscle-Protector).
+**Target:** 2–3 avatars. Pick the ones the VOC dossier actually supports — don't force ones the data doesn't back.
 
 **Critical rule:** every quote-field cell is verbatim from the VOC dossier with traceable attribution. If a field's quote isn't in the dossier, do a top-up web search — never invent.
 
@@ -34,7 +34,7 @@ Where the template's "Monthly Revenue" field reads B2B, I've adapted it to **hou
 
 ## Per-avatar structure (repeated 2–3 times)
 
-Every avatar gets every block below. The Aonic Complete reference (`Aonic_Complete_Avatar_Sheets.md`) is the depth pattern.
+Every avatar gets every block below — use the most recently completed brand's Avatar Sheets as the depth pattern.
 
 ### Header
 

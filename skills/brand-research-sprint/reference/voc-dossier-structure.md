@@ -2,7 +2,7 @@
 
 Save as `<save-path>/<Brand>_<Product>_VOC_Dossier.md` (+ matching `.pdf`).
 
-**Target length:** minimum 6 dense pages (the Aonic Fuel reference is 41 PDF pages / ~16,000 words / 950 lines of markdown). Hit a similar depth.
+**Target length:** minimum 6 dense pages (aim for 40+ PDF pages / ~15,000 words / 900+ lines of markdown). Hit that depth.
 
 **Target quote count:** 200+ verbatim attributed quotes, numbered sequentially in §3.
 
@@ -28,7 +28,7 @@ Save as `<save-path>/<Brand>_<Product>_VOC_Dossier.md` (+ matching `.pdf`).
 
 ## §0 Product Reality Addendum — read this first
 
-This is the **brand-canonical facts layer.** Where the rest of the dossier contradicts §0, §0 wins. The Aonic Fuel sprint discovered that the brand brief contradicted the actual product label (Fuel was claimed to be "zero artificial sweeteners" — true — but the brief also implied "no carrageenan" while the product DOES contain food-grade carrageenan). §0 is where you document the truth.
+This is the **brand-canonical facts layer.** Where the rest of the dossier contradicts §0, §0 wins. §0 is where you document the truth — including any cases where the brand brief contradicts the actual product label.
 
 ### §0.1 Brand-approved product facts
 
@@ -61,17 +61,15 @@ The 3–5 cornerstone benefits the brand will defend. Phrase each in 1–2 sente
 
 For each wedge: (1) the verbatim customer-voice that proves the pain exists, (2) why this product wins it.
 
-**Critical:** All wedges must be audited against the verified ingredient list / spec. Aonic Fuel's first draft put "no carrageenan" as a wedge — then OpenFoodFacts revealed the product DOES contain carrageenan. We rewrote §0.4 to make "no sucralose / no Ace-K" the cornerstone wedge instead.
+**Critical:** All wedges must be audited against the verified ingredient list / spec. If a wedge you planned to use turns out to be invalidated by the actual label (e.g. you were going to attack an ingredient your product also contains), document this in §0.5 and substitute a defensible alternative wedge.
 
 ### §0.5 What is NOT a wedge — and why
 
 This section saves the brand from itself. List the would-be wedges that the data shows you cannot defend. For each, document the reason.
 
-Examples from Aonic Fuel §0.5:
-- ❌ NOT the carrageenan wedge (Aonic Fuel contains it)
-- ❌ NOT "all-natural sweeteners is a clean win" (stevia aftertaste complaints exist in the corpus)
-- ❌ NOT lower price (the product is premium-positioned)
-- ❌ NOT "more protein" (32g is competitive but not category-leading)
+Example format:
+- ❌ NOT [wedge X] — [reason: product contains the ingredient, claim is contested, etc.]
+- ❌ NOT [wedge Y] — [reason: too close to competitor's existing positioning]
 
 ### §0.6 Required language anchors — preserve verbatim
 
@@ -86,7 +84,7 @@ Each insight is a paragraph. Each paragraph:
 2. Quotes 2–4 verbatim customer-voice supports with citation links
 3. Suggests a headline test or copy direction
 
-Rank by **copy-actionability**, not by sentiment. The headline test for #1 ("32g of protein. Zero sucralose. Zero apologies.") emerged from the Aonic Fuel §1 #1.
+Rank by **copy-actionability**, not by sentiment. The top insight should produce a testable headline — that's the quality bar.
 
 This section is the brief the brand's CMO reads if they only read 1 page. Make it count.
 
@@ -104,7 +102,7 @@ This section is the brief the brand's CMO reads if they only read 1 page. Make i
 6. **Verbatim panel — their mechanism story (why they would believe this product works).** 3–5 quotes from authority sources / expert framings.
 7. **What this means for copy targeting this persona.** 3–4 sentences.
 
-The Aonic Fuel reference (page 7–18 of the PDF) is the bar.
+Aim for 10–12 pages of depth across the persona section.
 
 ---
 
@@ -120,7 +118,7 @@ Typical cluster groupings:
 - §3E The price-per-unit / "subscription tax" cluster
 - §3F The "hidden sugar" / label-vs-claim cluster
 - §3G The "adjacent solution fatigue" cluster (what customers do INSTEAD)
-- §3H Category-specific cluster (e.g. GLP-1 protein for Aonic Fuel)
+- §3H Category-specific cluster (e.g. a trend or format cluster relevant to this product category)
 - §3I The "morning ritual / commute" cluster (when / where the product is consumed)
 - §3J The competitor-praise corpus (what loyalists actually love — the bar)
 - §3K The expert-framework cluster (named expert rankings + commentary)
@@ -131,10 +129,10 @@ Each quote follows the format:
 N. *"verbatim quote"* — Source name + platform ([cite link](url))
 ```
 
-Example from Aonic Fuel §3A:
+Example format:
 
 ```markdown
-17. *"One of the worst-tasting pre-made shakes they've tried. The vanilla flavor was pretty subtle, with an overpowering bitter flavor that almost tasted like drinking spoiled milk."* — [BarBend Muscle Milk Pro review](https://barbend.com/muscle-milk-protein-powder-review/).
+17. *"[verbatim quote from customer or review]"* — [Source name + platform](url)
 ```
 
 ---
@@ -144,12 +142,12 @@ Example from Aonic Fuel §3A:
 Two sub-sections.
 
 ### §4A Lost discovery — where this category came from
-Use the Layer 3 framework from `research-framework.md`. One rich story, factually true. Anchor it with named figures and dates. Example: Aonic Fuel §4A told the story of Yuri Gagarin eating beef-paste from a tube on Vostok-1 in 1961, then the Mead Johnson Metrecal invention in 1959 ("$40 million sold in year 1"), then Betty Friedan's quote in *The Feminine Mystique* (1963) calling Metrecal "chalk."
+Use the Layer 3 framework from `research-framework.md`. One rich story, factually true. Anchor it with named figures and dates — a historical invention, a surprising origin, a forgotten pioneer. The story should make the reader feel like they've been let in on something.
 
 ### §4B Fall-from-Eden — how the category got corrupted
-The Layer 4 framework. Multi-act story, factually true, named figures and dates. Example: Aonic Fuel §4B walked the Prolinn deaths (1976–1982), sucralose's accidental 1976 invention + 1998 FDA approval, the ultra-processed creep (2010–2024), and the "End Fake Health" course-correction (2024–).
+The Layer 4 framework. Multi-act story, factually true, named figures and dates. Trace how the category started with promise, then got captured by cheap ingredients, regulatory shortcuts, or commercial compromise.
 
-End each story with a **mechanism narrative paragraph** the brand's long-form copy can lift directly. The Aonic Fuel §4 closes with a 100-word spine the brand can use verbatim or adapt.
+End each story with a **mechanism narrative paragraph** the brand's long-form copy can lift directly — a 100-word spine that connects the historical arc to the brand's positioning today.
 
 ---
 
@@ -193,7 +191,7 @@ Mine the corpus for verbatim customer phrases that the brand will be tempted to 
 - Money-back guarantee framing if the brand doesn't offer refunds
 - Tasting / texture claims that over-promise
 
-Aonic Fuel's §7 has 17 rows. Aim for a similar density.
+Target 15–20 rows for a well-researched product.
 
 ---
 
@@ -220,7 +218,7 @@ Organize by stream. One sub-section per major source category. Every URL the dos
 **Total verbatim quotes captured and attributed in this dossier: N+** across §3A–§3K, plus the curiosity/corruption layer in §4, plus the §5 competitive teardown table. Each carries a real attribution URL or named-source citation.
 ```
 
-Replace N with the actual count. The Aonic Fuel close line was "172+".
+Replace N with the actual count — aim for 200+.
 
 ---
 

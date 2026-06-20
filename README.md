@@ -41,8 +41,6 @@ Takes ~2–4 minutes (mostly the Chromium download). It's idempotent and non-des
 | `skills/marketing-brain/` | `~/.claude/skills/marketing-brain/` |
 | `scraper/scrape.py` | `~/meta-scraper/scrape.py` (the scraper engine) |
 | `scraper/scrape_deep.py` | `~/meta-scraper/scrape_deep.py` (deep-scroll variant for large advertisers) |
-| `brands/aonic-fuel/` | `~/meta-scraper/brands/aonic-fuel/` (example customer) |
-| `brands/aonic-complete/` | `~/meta-scraper/brands/aonic-complete/` (example customer) |
 | `marketing-brain-data/knowledge/` | `~/Second Marketing Brain/knowledge/` (seed brain) |
 | (created) | `~/.meta-scraper-venv/` — Python env + Chromium, shared by all three skills |
 
@@ -70,11 +68,7 @@ marketing-skills-handoff/
 ├── scraper/
 │   ├── scrape.py              the Meta Ad Library scraper engine
 │   └── scrape_deep.py         deep-scroll variant for large advertisers
-├── brands/
-│   ├── aonic-fuel/            example customer brand profile
-│   └── aonic-complete/        example customer brand profile
-├── marketing-brain-data/      seed knowledge base
-└── examples/                  finished Aonic Fuel deliverables + walkthrough
+└── marketing-brain-data/      seed knowledge base
 ```
 
 ## Troubleshooting
@@ -82,4 +76,4 @@ marketing-skills-handoff/
 - **Skill doesn't show in `/skills`** — restart Claude Code; confirm `~/.claude/skills/<skill>/SKILL.md` exists.
 - **Ad scrape times out** — re-run `~/.meta-scraper-venv/bin/playwright install chromium`.
 - **PDF rendering fails in brand-research-sprint** — `~/.meta-scraper-venv/bin/python -m pip install markdown_pdf`.
-- **Report shows no generation-prompt section** — name a customer brand when you ask (e.g. "for aonic"), or check `~/meta-scraper/brands/<slug>/brand.json` exists.
+- **Report shows no generation-prompt section** — name a customer brand when you ask (e.g. "for [your-brand]"), or check `~/meta-scraper/brands/<slug>/brand.json` exists.
