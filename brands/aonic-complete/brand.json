@@ -1,0 +1,51 @@
+{
+  "brand_name": "Aonic Complete",
+  "brand_slug": "aonic-complete",
+  "niche": "daily essential nutrition",
+  "what_you_sell_and_to_whom": "a dual-format daily essential nutrition system (a 1.1 oz on-the-go liquid shot plus softgels and a capsule in a patent-pending dual-chamber container) delivering 34 key ingredients at scientifically studied dosages across four nutrition cornerstones, in tailored HIS and HERS editions \u2014 for sophisticated, label-reading wellness shoppers (the AG1 churner is the primary buyer) who want to consolidate a multi-bottle supplement stack into one transparent, no-pixie-dusting daily ritual",
+  "product_name": "Aonic Complete",
+  "product_type": "dual-phase daily essential nutrition ritual: a 1.1 oz on-the-go liquid shot + 3 softgels + 1 capsule in a patent-pending dual-chamber container; 34 ingredients at scientifically studied dosages; tailored HIS and HERS editions; sold in 30-count (30-day supply, $115) and 90-count ($345) packs",
+  "language": "English",
+  "product_image_filename": "aonic-complete-his-30.png",
+  "logo_light_bg_filename": "aonic-logo-light-bg.png",
+  "logo_dark_bg_filename": "aonic-logo-dark-bg.png",
+  "documents_folder": "documents",
+  "tone": "science-forward and label-led; mechanism over testimonial; validating rather than transformational (the category failed you, not your judgment); transparent, premium-but-accessible, anti-pixie-dusting; written for the earned-skepticism of a buyer who reads every Supplement Facts panel. Avoid hype verbs (boost, optimize, unlock) and influencer/lifestyle fluff.",
+  "proof_points": [
+    "34 key ingredients delivered at scientifically studied dosages \u2014 no pixie-dusting",
+    "Big Idea: 'One powder can't do it all.' AG1 is a greens powder; Aonic Complete is a complete daily nutrient platform",
+    "Four Cornerstones of Daily Essential Nutrition: Multivitamins & Minerals; Pre-, Pro- & Postbiotics; Omega 3; Superfoods & Greens",
+    "Patent-pending dual-chamber design: a 1.1 oz on-the-go liquid shot + 3 softgels + 1 capsule",
+    "Tailored HIS and HERS editions (HERS: cranberry + hyaluronic acid; HIS: lycopene + boron)",
+    "6 core benefits: 4-in-1 Daily Immune Support; Cellular Energy Support; Smooth Digestion for gut health; Brain Health & Function; healthier skin, hair & nails; heart & joint health",
+    "AG1 teardown: 3 ingredients at parity, 7 AG1 doesn't include at all (1g Omega-3, 50mcg D3, 200mcg K1, 180mcg Iodine, 20mg PQQ, 450mg Tributyrin postbiotic, 500mg Turmeric Curcumin), 6 AG1 underdoses, plus a gender layer AG1 lacks",
+    "Credibility stack: Senada Greca (Co-Founder & Scientific Advisor), Dr. David Jan, Ph.D. (Harvard-trained Staff Scientist), Dr. William Li, M.D. (Medical Advisor, NYT bestseller)",
+    "Press: Forbes, People Magazine, Yahoo Life, AthleTech News",
+    "4.65 stars across 156 reviews",
+    "Third-party tested; Made in the USA with globally sourced ingredients",
+    "We-Use-It-Ourselves Guarantee",
+    "Value: $115 consolidates $200\u2013230/month of separate bottles \u2014 up to ~$1,800/year vs. building the equivalent stack a la carte"
+  ],
+  "product_line": [
+    "Aonic Complete",
+    "Aonic Fuel",
+    "Aonic Race",
+    "Aonic Build",
+    "Aonic Flow"
+  ],
+  "_help": {
+    "brand_name": "Customer brand name shown in reports.",
+    "brand_slug": "Folder name and report-filename slug.",
+    "niche": "Short category descriptor. Brand-approved category is 'Daily Essential Nutrition' \u2014 not 'multivitamin', 'greens powder', or 'foundational supplement'.",
+    "what_you_sell_and_to_whom": "One-line description of product + target audience.",
+    "product_name": "Exact product name to feature in generated ads.",
+    "product_type": "Form factor / packaging description. Aonic Complete is a DUAL-FORMAT ritual (liquid shot + softgels + capsule), not a powder.",
+    "language": "Language for text overlays in generated ads.",
+    "product_image_filename": "LEAVE BLANK until the user drops a product image into this folder. The skill warns gracefully if missing.",
+    "logo_light_bg_filename": "Parent 'Aonic' brand mark for light backgrounds (shared across the Aonic line; copied from the aonic-fuel profile).",
+    "logo_dark_bg_filename": "Parent 'Aonic' brand mark for dark backgrounds (shared across the Aonic line; copied from the aonic-fuel profile).",
+    "tone": "Brand voice descriptors. Used as a reference when Claude writes prompts.",
+    "proof_points": "Credibility claims to surface in generated ads where relevant. See current_state.md and the foundational docs for binding compliance language before using any of these in copy.",
+    "product_line": "All Aonic SKUs for context. Note: the 50+ healthspan buyer belongs to Aonic Flow, not Complete."
+  }
+}

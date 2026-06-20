@@ -1,0 +1,126 @@
+#!/usr/bin/env bash
+# scrape-meta-ads handoff installer.
+# Run this ONCE on a fresh Mac to install the skill, the scraper, the venv,
+# Chromium, and any bundled customer brand folders.
+#
+#   bash install.sh
+#
+# Idempotent: re-running it is safe. Existing skill / brands / venv get
+# detected; the script will tell you what it skipped or backed up.
+
+set -euo pipefail
+
+BUNDLE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+HOME_DIR="${HOME}"
+
+c_blue=$'\033[1;34m'
+c_green=$'\033[1;32m'
+c_yellow=$'\033[1;33m'
+c_red=$'\033[1;31m'
+c_reset=$'\033[0m'
+
+step() { echo "${c_blue}→${c_reset} $*"; }
+ok()   { echo "${c_green}✓${c_reset} $*"; }
+warn() { echo "${c_yellow}!${c_reset} $*"; }
+die()  { echo "${c_red}✗${c_reset} $*" >&2; exit 1; }
+
+echo ""
+echo "scrape-meta-ads handoff installer"
+echo "================================="
+echo ""
+
+# ---- 1. Python 3.11+ --------------------------------------------------------
+step "Checking Python..."
+command -v python3 >/dev/null 2>&1 || die "python3 not found. Install Python 3.11+ first (e.g. brew install python@3.12)."
+PYV=$(python3 -c 'import sys; print(f"{sys.version_info.major}.{sys.version_info.minor}")')
+PYV_MAJOR=$(printf '%s' "$PYV" | cut -d. -f1)
+PYV_MINOR=$(printf '%s' "$PYV" | cut -d. -f2)
+if [ "$PYV_MAJOR" -lt 3 ] || { [ "$PYV_MAJOR" -eq 3 ] && [ "$PYV_MINOR" -lt 11 ]; }; then
+  die "Python 3.11+ required (found $PYV)."
+fi
+ok "Python $PYV"
+
+# ---- 2. Venv ----------------------------------------------------------------
+VENV="$HOME_DIR/.meta-scraper-venv"
+if [ -d "$VENV" ]; then
+  ok "venv exists at $VENV"
+else
+  step "Creating venv at $VENV"
+  python3 -m venv "$VENV"
+  ok "venv created"
+fi
+
+# ---- 3. Python deps ---------------------------------------------------------
+step "Installing playwright + playwright-stealth==2.0.3 (pinned) + Pillow"
+"$VENV/bin/python" -m pip install --upgrade pip --quiet
+"$VENV/bin/python" -m pip install "playwright" "playwright-stealth==2.0.3" "Pillow" --quiet
+ok "Python deps installed"
+
+# ---- 4. Chromium ------------------------------------------------------------
+step "Installing Chromium for Playwright (~150 MB; can take a minute)"
+"$VENV/bin/playwright" install chromium >/dev/null 2>&1
+ok "Chromium installed"
+
+# ---- 5. Scraper -------------------------------------------------------------
+mkdir -p "$HOME_DIR/meta-scraper/screenshots" "$HOME_DIR/meta-scraper/runs" "$HOME_DIR/meta-scraper/reports"
+SCRAPER_DEST="$HOME_DIR/meta-scraper/scrape.py"
+if [ -f "$SCRAPER_DEST" ]; then
+  step "Backing up existing scraper to scrape.py.bak"
+  cp "$SCRAPER_DEST" "$SCRAPER_DEST.bak"
+fi
+cp "$BUNDLE_DIR/scraper/scrape.py" "$SCRAPER_DEST"
+chmod +x "$SCRAPER_DEST"
+ok "Scraper at $SCRAPER_DEST"
+
+# ---- 6. Skill ---------------------------------------------------------------
+SKILL_DEST="$HOME_DIR/.claude/skills/scrape-meta-ads"
+mkdir -p "$(dirname "$SKILL_DEST")"
+if [ -d "$SKILL_DEST" ]; then
+  warn "Existing skill at $SKILL_DEST — backing up to ${SKILL_DEST}.bak"
+  rm -rf "${SKILL_DEST}.bak"
+  mv "$SKILL_DEST" "${SKILL_DEST}.bak"
+fi
+cp -R "$BUNDLE_DIR/skill" "$SKILL_DEST"
+find "$SKILL_DEST/scripts" -type f -name '*.py' -exec chmod +x {} \; 2>/dev/null || true
+find "$SKILL_DEST/scripts" -type f -name '*.sh' -exec chmod +x {} \; 2>/dev/null || true
+ok "Skill installed at $SKILL_DEST"
+
+# ---- 7. Brand folders -------------------------------------------------------
+mkdir -p "$HOME_DIR/meta-scraper/brands"
+if [ -d "$BUNDLE_DIR/brands" ]; then
+  for brand_dir in "$BUNDLE_DIR/brands"/*/; do
+    [ -d "$brand_dir" ] || continue
+    name=$(basename "$brand_dir")
+    dest="$HOME_DIR/meta-scraper/brands/$name"
+    if [ -d "$dest" ]; then
+      warn "Brand '$name' already exists at $dest — skipping (your existing files are preserved)"
+    else
+      cp -R "$brand_dir" "$dest"
+      ok "Brand: $name"
+    fi
+  done
+fi
+
+# ---- 8. Sanity check --------------------------------------------------------
+step "Sanity-checking imports"
+"$VENV/bin/python" -c "from playwright.sync_api import sync_playwright; from playwright_stealth import Stealth; print('ok')" >/dev/null \
+  || die "Import sanity check failed. Try re-running this script."
+ok "Imports work"
+
+echo ""
+echo "${c_green}ALL DONE.${c_reset}"
+echo ""
+echo "Open Claude Code in any directory and paste a Meta Ad Library URL,"
+echo "mentioning the customer (e.g. \"scrape these for aonic\")."
+echo "The skill auto-loads from ~/.claude/skills/. No flags to flip."
+echo ""
+if [ -d "$HOME_DIR/meta-scraper/brands" ]; then
+  echo "Customer brands installed:"
+  for f in "$HOME_DIR/meta-scraper/brands"/*/brand.json; do
+    [ -f "$f" ] || continue
+    slug=$(basename "$(dirname "$f")")
+    name=$(python3 -c "import json,sys; print(json.load(open('$f')).get('brand_name',''))" 2>/dev/null || echo "")
+    echo "  - $slug ${name:+($name)}"
+  done
+fi
+echo ""
