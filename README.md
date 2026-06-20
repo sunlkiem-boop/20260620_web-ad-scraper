@@ -50,20 +50,11 @@ Takes ~2–4 minutes (mostly the Chromium download). It's idempotent and non-des
 
 | Skill | Say something like |
 |---|---|
-| scrape-meta-ads | "Scrape these ads for aonic: `<Meta Ad Library URL with view_all_page_id>`" |
+| scrape-meta-ads | "Scrape these ads for [BRAND]: `<Meta Ad Library URL with view_all_page_id>`" |
 | brand-research-sprint | "Create the foundational docs for `<product URL>`" |
 | marketing-brain | "Ask the marketing brain: how does Mark structure a VSL?" |
 
 For the ad scraper, grab the URL from the brand's **Pages** result in the [Meta Ad Library](https://www.facebook.com/ads/library/) — the one containing `view_all_page_id=...`.
-
-## The Aonic Fuel example (for context)
-
-`examples/` shows what the output looks like end to end:
-
-- `examples/WALKTHROUGH_AONIC_FUEL.html` — a full walkthrough.
-- `examples/aonic-fuel/` — the finished deliverables: VOC Dossier, Avatar Sheets, Offer Brief, Beliefs (markdown + PDF), and a sample Meta-ads scrape report.
-
-The `aonic-fuel` brand is also installed as a live customer profile, so you can scrape a competitor against it immediately to see the per-ad generation prompts.
 
 ## What's bundled
 
